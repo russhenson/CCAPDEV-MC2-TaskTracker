@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container outerCont">
+        <h1 class="text-center title">Task Tracker</h1>
+        <div class="container taskTrackerCont" id="taskTrackerCont">
+            <div class="addTaskCont">
+                <h3 class="tasknametitle">Task Name</h3>
+                <div class="row addTask">
+                    <input class="col addTaskInput" onkeyup="addTaskEnabled();" type="text" id="addTaskInput">
+                    <button class="btn addTaskBtn" disabled onclick="addTask();" id="addBtn">Add</button>
+                </div>
+            </div>
+            
+            <div class="row taskListCont">
+                <h3 class="col taskListTitle">Task List</h3>
+                <select class="dropdownsort" onchange="sortTasks();" id="dropdownsort">
+                    <option value="time">time</option>
+                    <option value="duration">duration</option>
+                </select>
+            </div>
+
+            <!-- <div class="task">
+                <button class="btn removeBtn">
+                    <img src="/icons/x-circle.svg" alt="">
+                </button>
+                <div class="row taskCont">
+                    <div class="col-9 taskNameDiv">
+                        <input type="text" onchange="autosave(this.value);" class="taskName" id="taskName">
+                        
+                        <h4 class="time" id="time">Duration: 07:07:01</h4>
+                    </div>
+                    <div class="col-3 taskBtns">
+                        
+                        <button class="btn start" onclick="start();">start</button>
+                        <button class="btn end" onclick="end();" disabled>end</button>
+                        
+                    </div>
+                </div>
+            </div> -->
+
+            
+
+            <!-- <div class="summary">
+                <h4>Summary: 0:05:00</h4>
+            </div>
+             -->
+            
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script text="text/javascript" src="script.js"></script>
+</body>
+</html>
