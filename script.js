@@ -112,6 +112,8 @@ function removeTask(task) {
 
     console.log(tasks);
 
+    computeSummary();
+
 }
 
 function start(taskID) {
@@ -136,7 +138,7 @@ function start(taskID) {
 
 }
 
-var totalSummary = 0;
+
 
 function end(taskID) {
     var today = new Date();
@@ -164,7 +166,19 @@ function end(taskID) {
 
     endBtn.disabled = true;
 
-    totalSummary += duration;
+    computeSummary();
+    
+
+    console.log(tasks);
+}
+
+function computeSummary() {
+    var totalSummary = 0;
+
+    for(var i = 0; i < tasks.length; i++){
+        if(tasks[i].duration != null)
+            totalSummary += tasks[i].duration;
+    }
 
     var summary = document.getElementById("summary");
     var convertMinSummary = Math.floor(totalSummary / 60);
@@ -172,7 +186,6 @@ function end(taskID) {
 
     summary.innerHTML = `Summary: ${convertMinSummary}mins ${convertSecSummary}sec`;
 
-    console.log(tasks);
 }
 
 
