@@ -16,6 +16,7 @@ function renderTasks() {
 
     var taskTrackerCont = document.getElementById("taskTrackerCont");
     var addTaskInput = document.getElementById("addTaskInput");
+    var tasklist = document.getElementById("tasklist");
     
     var taskOuterCont = document.createElement("div");
     var removeBtn = document.createElement("button");
@@ -73,7 +74,8 @@ function renderTasks() {
     taskOuterCont.appendChild(taskCont);
     taskOuterCont.appendChild(removeBtn);
 
-    taskTrackerCont.appendChild(taskOuterCont);
+    tasklist.appendChild(taskOuterCont);
+    taskTrackerCont.appendChild(tasklist);
 
     addTaskInput.value = "";
     taskCounter++;
@@ -98,8 +100,6 @@ function addTask() {
         }
     );
     
-
-
     renderTasks();
 
 }
@@ -136,6 +136,8 @@ function start(taskID) {
 
 }
 
+var totalSummary = 0;
+
 function end(taskID) {
     var today = new Date();
     var hrs = ("0" + today.getHours()).slice(-2);
@@ -162,7 +164,13 @@ function end(taskID) {
 
     endBtn.disabled = true;
 
+    totalSummary += duration;
 
+    var summary = document.getElementById("summary");
+    var convertMinSummary = Math.floor(totalSummary / 60);
+    var convertSecSummary = totalSummary - (convertMinSummary * 60);
+
+    summary.innerHTML = `Summary: ${convertMinSummary}mins ${convertSecSummary}sec`;
 
     console.log(tasks);
 }
@@ -181,6 +189,7 @@ function autosave(taskName) {
 
 function renderTasksSort(i){
     var taskTrackerCont = document.getElementById("taskTrackerCont");
+    var tasklist = document.getElementById("tasklist");
 
     var taskOuterCont = document.createElement("div");
     var removeBtn = document.createElement("button");
@@ -250,7 +259,8 @@ function renderTasksSort(i){
     taskOuterCont.appendChild(taskCont);
     taskOuterCont.appendChild(removeBtn);
 
-    taskTrackerCont.appendChild(taskOuterCont);
+    tasklist.appendChild(taskOuterCont);
+    taskTrackerCont.appendChild(tasklist);
 
 }
 
