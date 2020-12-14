@@ -44,7 +44,7 @@ function renderTasks() {
     time.id = "time"+taskCounter;
     
 
-    removeIcon.src = "/icons/x-circle.svg"
+    removeIcon.src = "x-circle.svg"
 
     /* time.innerHTML = ""; */
     startBtn.innerHTML = "start";
@@ -230,7 +230,7 @@ function renderTasksSort(i){
     time.id = "time"+i;
     
 
-    removeIcon.src = "/icons/x-circle.svg"
+    removeIcon.src = "x-circle.svg"
 
     if(tasks[i].duration != null){
         var convertMin = Math.floor(tasks[i].duration / 60);
